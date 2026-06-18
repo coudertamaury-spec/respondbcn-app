@@ -191,6 +191,9 @@ export default function ResponBCN() {
           max_tokens: 1000,
           system: SYSTEM_PROMPT(businessLabel, selectedTone, selectedChannel) + (businessContext ? `\n\n${businessContext}` : ""),
           messages: [{ role: "user", content: inputMessage }],
+             originalReview: inputMessage,
+          channel: selectedChannel,
+          language: "es",
         }),
       });
 
@@ -252,6 +255,9 @@ export default function ResponBCN() {
           max_tokens: 600,
           system: REVIEW_SYSTEM_PROMPT(bizLabel, businessName, reviewTone, reviewChannel, platLabel, reviewTiming),
           messages: [{ role: "user", content: userPrompt }],
+            originalReview: userPrompt,
+          channel: reviewChannel,
+          language: "es",
         }),
       });
 
